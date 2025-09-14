@@ -1,12 +1,12 @@
 body {
-    background-color: #dce0e8;
+    background-color: #a6adc8;
     font-family: 'TeX Gyre Pagella', Georgia, serif;
     font-size: 20px;
 }
 
 .paper {
     background-color: white;
-    max-width: 900px;
+    max-width: 60vw;
     margin: 0vh auto;
     padding: 5vh 4vw;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
