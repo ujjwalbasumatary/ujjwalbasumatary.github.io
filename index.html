@@ -1,41 +1,81 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>About Me</title>
-<!-- <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <title>About Me</title>
 
-<!-- <body> -->
-<div class="container">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-	<div class="row">
-		<div class="col-md-8">
+    <style>
+        body {
+            background-color: #f5f5f5; /* Light grey background for the whole page */
+        }
 
-			<h2> About me </h2>
-			<p> Hi! My name is Ujjwal. I am interested in almost the entirety of theoretical physics, but if I had to pick a favorite, it would be the subject of Quantum Field Theory. A large part of my time therefore is spent studying QFT, primarily from a high energy theory perspective, but I am also interested in it from a mathematical physics and condensed matter theory viewpoint. I am also interested in particle phenomenology.
-			</p>
-			<p> This website is mostly intended to be a repository of the notes made during my studies and projects.
-			<h2>Publications</h2>
-			<ul>
-				<li>[<a href="https://arxiv.org/abs/2410.22702">2410.22702</a>] <i>Beyond Hawking evaporation of black holes formed by dark matter in compact stars</i> &mdash; Ujjwal Basumatary, Nirmal Raj, Anupam Ray.</li>
-			  </ul>
-			
-			<h2>Worldline</h2>
-			<ul class="timeline">
-			  <li>
-				<span class="timeline-year">9/2020 - 4/2025:</span>
-				<span class="timeline-detail">Bachelor and Master of Science, Indian Institute of Science (IISc) &mdash; GPA: 9.3/10 (Physics: 9.6/10)</span>
-			  </li>
-			</ul>
-		</div>
-		<div class="col-md-4" style="padding-top:2vh;">
-        <img class = "img-fluid" src="/images/pfp.png" style="padding:1vh" />
-			<div style="font-size: 20px;">Ujjwal Basumatary</div><br>
-			<p>ujjwalb <i>at</i> iisc <i>dot</i> ac <i>dot</i> in</p>
-			<p>ujjwalb <i>dot</i> physics <i>at</i> gmail <i>dot</i> com</p>
-		</div>
-	</div>
-</div>
-<!-- </body> -->
+        .paper {
+            background-color: white;
+            max-width: 900px;
+            margin: 3vh auto;
+            padding: 3vh 4vw;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .timeline {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .timeline-year {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="paper">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>About me</h2>
+                <p>
+                    Hi! My name is Ujjwal. I am interested in almost the entirety of theoretical physics, but if I had
+                    to pick a favorite, it would be Quantum Field Theory. A large part of my time is spent studying
+                    QFT, primarily from a high energy theory perspective, but I am also interested in it from a
+                    mathematical physics and condensed matter theory viewpoint. I am also interested in particle
+                    phenomenology.
+                </p>
+                <p>
+                    This website is mostly intended to be a repository of the notes made during my studies and
+                    projects.
+                </p>
+
+                <h2>Publications</h2>
+                <ul>
+                    <li>[<a href="https://arxiv.org/abs/2410.22702">2410.22702</a>] <i>Beyond Hawking evaporation of black holes formed by dark matter in compact stars</i> &mdash; Ujjwal Basumatary, Nirmal Raj, Anupam Ray.</li>
+                </ul>
+
+                <h2>Worldline</h2>
+                <ul class="timeline">
+                    <li>
+                        <span class="timeline-year">9/2020 - 4/2025:</span>
+                        <span class="timeline-detail">Bachelor and Master of Science, Indian Institute of Science (IISc) &mdash; GPA: 9.3/10 (Physics: 9.6/10)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 text-center" style="padding-top:2vh;">
+                <img class="img-fluid rounded" src="/images/pfp.png" style="padding:1vh; max-width: 200px;" />
+                <div style="font-size: 20px; font-weight: bold;">Ujjwal Basumatary</div><br>
+                <p>ujjwalb <i>at</i> iisc <i>dot</i> ac <i>dot</i> in</p>
+                <p>ujjwalb <i>dot</i> physics <i>at</i> gmail <i>dot</i> com</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
