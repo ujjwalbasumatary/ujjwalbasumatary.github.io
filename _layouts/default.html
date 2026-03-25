@@ -22,9 +22,7 @@
   <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
       <div class="container">
-        <!-- <a class="navbar-brand" href="{{ '/' | relative_url }}"> -->
-        <!-- {{ site.title }} -->
-        <!-- </a> -->
+        <a class="navbar-brand" href="{{ '/' | relative_url }}">Ujjwal Basumatary</a>
 
         <button
           class="navbar-toggler"
@@ -56,6 +54,12 @@
       </div>
     </nav>
 
+    <main class="flex-grow-1">{{ content }}</main>
+
+    <footer>
+      Ujjwal Basumatary &mdash; ujjwalb <em>dot</em> physics <em>at</em> gmail <em>dot</em> com
+    </footer>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -71,7 +75,5 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-
-    <main class="flex-grow-1">{{ content }}</main>
   </body>
 </html>
