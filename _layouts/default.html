@@ -205,7 +205,10 @@
       // SPA-style nav: swap only <main> content, keep background alive
       (function () {
         function isLocalLink(a) {
-          return a.hostname === location.hostname && !a.hasAttribute("download");
+          if (a.hostname !== location.hostname || a.hasAttribute("download")) return false;
+          var href = a.getAttribute("href") || "";
+          if (/\.(pdf|zip|png|jpg|jpeg|gif|svg)$/i.test(href)) return false;
+          return true;
         }
 
         function updateNav(url) {
