@@ -212,11 +212,11 @@
         }
 
         function updateNav(url) {
+          var path = new URL(url, location.origin).pathname.replace(/\/$/, "") || "/";
           document.querySelectorAll(".nav-item").forEach(function (li) {
             var link = li.querySelector(".nav-link");
             if (!link) return;
             var href = link.getAttribute("href").replace(/\/$/, "") || "/";
-            var path = url.replace(/\/$/, "") || "/";
             if (href === path) {
               li.classList.add("active");
             } else {
