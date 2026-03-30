@@ -1,11 +1,31 @@
 :root {
-  --accent: #2d6a9f;
-  --accent-light: #e8f0f8;
-  --text: #1c1c2e;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --bg: #fafaf9;
-  --white: #ffffff;
+  --accent: #1e66f5;
+  --accent-light: #bcc0cc;
+  --text: #4c4f69;
+  --muted: #6c6f85;
+  --border: #ccd0da;
+  --bg: #eff1f5;
+  --white: #e6e9ef;
+  --dot-color: rgba(30, 102, 245, 0.25);
+  --gradient-start: #eff1f5;
+  --gradient-mid: #d0daf0;
+  --gradient-end: #b8c7eb;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] {
+  --accent: #89b4fa;
+  --accent-light: #313244;
+  --text: #cdd6f4;
+  --muted: #a6adc8;
+  --border: #45475a;
+  --bg: #1e1e2e;
+  --white: #24273a;
+  --dot-color: rgba(137, 180, 250, 0.15);
+  --gradient-start: #1e1e2e;
+  --gradient-mid: #1e2540;
+  --gradient-end: #1a2a4a;
+  --shadow: rgba(0, 0, 0, 0.35);
 }
 
 /* ─── Base ─── */
@@ -15,12 +35,13 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image:
-    radial-gradient(circle, rgba(45, 106, 159, 0.25) 1.2px, transparent 1.2px),
-    linear-gradient(160deg, #fdfbf7 0%, #e4edf6 50%, #d6e4f0 100%);
+    radial-gradient(circle, var(--dot-color) 1.2px, transparent 1.2px),
+    linear-gradient(160deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
   background-size: 24px 24px, 100% 100%;
   background-attachment: scroll, fixed;
   min-height: 100vh;
   line-height: 1.75;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* ─── Navbar ─── */
@@ -28,6 +49,28 @@ body {
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   background-color: var(--white) !important;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.navbar-collapse {
+  transition: height 0.3s ease;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text);
+  transition: border-color 0.2s;
+  margin-left: 0.8rem;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
 }
 
 .navbar-brand {
@@ -35,6 +78,10 @@ body {
   font-weight: 600;
   color: var(--text) !important;
   letter-spacing: 0.01em;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 .nav-link {
@@ -61,7 +108,7 @@ body {
   padding: 2rem 2.5rem;
   background: var(--white);
   border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 16px var(--shadow);
 }
 
 /* ─── Headings ─── */
@@ -214,6 +261,19 @@ ul li {
   }
 }
 
+/* ─── Dark mode overrides ─── */
+[data-theme="dark"] .navbar {
+  background-color: var(--white) !important;
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+[data-theme="dark"] .profile-photo {
+  border-color: var(--border);
+}
+
 /* ─── Footer ─── */
 footer {
   text-align: center;
@@ -223,4 +283,5 @@ footer {
   border-top: 1px solid var(--border);
   margin-top: 4vh;
   background: var(--white);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
