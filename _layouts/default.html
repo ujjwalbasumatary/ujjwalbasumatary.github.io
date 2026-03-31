@@ -95,107 +95,132 @@
       (function () {
         var canvas = document.getElementById("particles");
         var ctx = canvas.getContext("2d");
-        var w, h, particles, mouse = { x: -9999, y: -9999 };
+        var w, h, mouse = { x: -9999, y: -9999 };
+        var animId = null;
+        var state = {};
 
         function getAccentColor() {
-          var style = getComputedStyle(document.documentElement);
-          return style.getPropertyValue("--accent").trim();
+          return getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
         }
 
         function hexToRgb(hex) {
           hex = hex.replace("#", "");
           if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-          var r = parseInt(hex.substring(0, 2), 16);
-          var g = parseInt(hex.substring(2, 4), 16);
-          var b = parseInt(hex.substring(4, 6), 16);
-          return r + ", " + g + ", " + b;
+          return [parseInt(hex.substring(0,2),16), parseInt(hex.substring(2,4),16), parseInt(hex.substring(4,6),16)];
         }
 
-        function init() {
+        function rgb(c) { return c[0] + ", " + c[1] + ", " + c[2]; }
+
+        function sizeCanvas() {
           w = canvas.width = window.innerWidth;
           h = canvas.height = window.innerHeight;
-          var count = Math.min(Math.floor((w * h) / 14000), 100);
-          particles = [];
-          for (var i = 0; i < count; i++) {
-            particles.push({
-              x: Math.random() * w,
-              y: Math.random() * h,
-              vx: (Math.random() - 0.5) * 0.35,
-              vy: (Math.random() - 0.5) * 0.35,
-              r: Math.random() * 2.5 + 1.5,
-              alpha: Math.random() * 0.3 + 0.7
-            });
-          }
         }
 
-        function animate() {
-          ctx.clearRect(0, 0, w, h);
-          var rgb = hexToRgb(getAccentColor());
-          var lineAlpha = 0.45;
-          var mouseAlpha = 0.55;
-          var lineW = 1.2;
-          var mouseW = 1.5;
-
-          for (var i = 0; i < particles.length; i++) {
-            var p = particles[i];
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < 0) p.x = w;
-            if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = h;
-            if (p.y > h) p.y = 0;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(" + rgb + ", " + p.alpha + ")";
-            ctx.fill();
-
-            for (var j = i + 1; j < particles.length; j++) {
-              var p2 = particles[j];
-              var dx = p.x - p2.x;
-              var dy = p.y - p2.y;
-              var dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < 140) {
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = "rgba(" + rgb + ", " + (lineAlpha * (1 - dist / 140)) + ")";
-                ctx.lineWidth = lineW;
-                ctx.stroke();
+        // ── 1. Particles (connected network) ──
+        var particles = {
+          name: "Particles",
+          init: function () {
+            sizeCanvas();
+            var count = Math.min(Math.floor((w * h) / 14000), 100);
+            state.dots = [];
+            for (var i = 0; i < count; i++) {
+              state.dots.push({
+                x: Math.random() * w, y: Math.random() * h,
+                vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+                r: Math.random() * 2.5 + 1.5, alpha: Math.random() * 0.3 + 0.7
+              });
+            }
+          },
+          draw: function () {
+            ctx.clearRect(0, 0, w, h);
+            var c = rgb(hexToRgb(getAccentColor()));
+            for (var i = 0; i < state.dots.length; i++) {
+              var p = state.dots[i];
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+              if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+              ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fillStyle = "rgba(" + c + ", " + p.alpha + ")"; ctx.fill();
+              for (var j = i + 1; j < state.dots.length; j++) {
+                var p2 = state.dots[j];
+                var dist = Math.sqrt((p.x-p2.x)*(p.x-p2.x) + (p.y-p2.y)*(p.y-p2.y));
+                if (dist < 140) {
+                  ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y);
+                  ctx.strokeStyle = "rgba(" + c + ", " + (0.45 * (1 - dist/140)) + ")";
+                  ctx.lineWidth = 1.2; ctx.stroke();
+                }
+              }
+              var mDist = Math.sqrt((p.x-mouse.x)*(p.x-mouse.x) + (p.y-mouse.y)*(p.y-mouse.y));
+              if (mDist < 180) {
+                ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y);
+                ctx.strokeStyle = "rgba(" + c + ", " + (0.55 * (1 - mDist/180)) + ")";
+                ctx.lineWidth = 1.5; ctx.stroke();
               }
             }
+          }
+        };
 
-            var mdx = p.x - mouse.x;
-            var mdy = p.y - mouse.y;
-            var mDist = Math.sqrt(mdx * mdx + mdy * mdy);
-            if (mDist < 180) {
+        // ── 2. Aurora waves ──
+        var aurora = {
+          name: "Aurora",
+          init: function () { sizeCanvas(); state.time = 0; },
+          draw: function () {
+            ctx.clearRect(0, 0, w, h);
+            state.time += 0.003;
+            var c = hexToRgb(getAccentColor());
+            for (var band = 0; band < 4; band++) {
               ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(mouse.x, mouse.y);
-              ctx.strokeStyle = "rgba(" + rgb + ", " + (mouseAlpha * (1 - mDist / 180)) + ")";
-              ctx.lineWidth = mouseW;
-              ctx.stroke();
+              var baseY = h * (0.25 + band * 0.15);
+              ctx.moveTo(0, h);
+              for (var x = 0; x <= w; x += 4) {
+                var y = baseY
+                  + Math.sin(x * 0.003 + state.time * (1 + band * 0.5) + band * 2) * 60
+                  + Math.sin(x * 0.007 + state.time * 0.7 + band) * 30
+                  + Math.cos(x * 0.001 + state.time * 0.3) * 40;
+                ctx.lineTo(x, y);
+              }
+              ctx.lineTo(w, h); ctx.closePath();
+              var alpha = 0.06 + band * 0.015;
+              var r2 = Math.min(255, c[0] + band * 20);
+              var g2 = Math.min(255, c[1] + band * 10);
+              var b2 = Math.min(255, c[2] - band * 15);
+              ctx.fillStyle = "rgba(" + r2 + ", " + g2 + ", " + b2 + ", " + alpha + ")";
+              ctx.fill();
             }
           }
-          requestAnimationFrame(animate);
+        };
+
+        // ── Background manager ──
+        // Change bgMode in localStorage to switch: 0 = Particles, 1 = Aurora
+        var modes = [particles, aurora];
+        var currentMode = parseInt(localStorage.getItem("bgMode") || "0") % modes.length;
+
+        function startMode(index) {
+          if (animId) cancelAnimationFrame(animId);
+          currentMode = index;
+          state = {};
+          modes[currentMode].init();
+          loop();
         }
 
-        var lastWidth = 0;
-        init();
-        animate();
+        function loop() {
+          modes[currentMode].draw();
+          animId = requestAnimationFrame(loop);
+        }
+
+        startMode(currentMode);
+
+        // Resize
+        var lastWidth = window.innerWidth;
         window.addEventListener("resize", function () {
           if (window.innerWidth !== lastWidth) {
             lastWidth = window.innerWidth;
-            init();
+            modes[currentMode].init();
           }
-          // Ignore height-only changes (mobile address bar show/hide)
-          // Setting canvas.height clears it, causing visible stutter
         });
-        lastWidth = window.innerWidth;
 
         window.addEventListener("mousemove", function (e) {
-          mouse.x = e.clientX;
-          mouse.y = e.clientY;
+          mouse.x = e.clientX; mouse.y = e.clientY;
         });
       })();
     </script>
