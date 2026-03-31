@@ -187,11 +187,9 @@
           if (window.innerWidth !== lastWidth) {
             lastWidth = window.innerWidth;
             init();
-          } else {
-            // Only update canvas height (mobile address bar)
-            canvas.height = window.innerHeight;
-            h = canvas.height;
           }
+          // Ignore height-only changes (mobile address bar show/hide)
+          // Setting canvas.height clears it, causing visible stutter
         });
         lastWidth = window.innerWidth;
 
