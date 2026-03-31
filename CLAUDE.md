@@ -11,7 +11,8 @@
 - **Dark mode:** Catppuccin Mocha
 - All colors use CSS custom properties in `:root` and `[data-theme="dark"]`
 - Dark mode toggle persists via `localStorage`, respects `prefers-color-scheme` as default
-- Background uses dot grid pattern + gradient, both defined via CSS variables
+- Background uses animated canvas (two modes via `localStorage["bgMode"]`: 0 = Particles, 1 = Aurora waves (default)), gradient defined via CSS variables
+- Favicon (`assets/favicon.svg`) uses hardcoded `#7c3aed` — does NOT respond to dark mode theme
 
 ## File Structure
 - `_layouts/default.html` — master template (head, navbar, footer, scripts)
@@ -29,3 +30,4 @@
 - **Preprints format:** `[arXiv ID] *Title* — Authors.`
 - Navbar font sizes use `clamp()` for responsive scaling
 - No jQuery — Bootstrap 5 bundle handles everything
+- SPA-style navigation: JS swaps `<main>` content on local link clicks, keeping canvas background alive
