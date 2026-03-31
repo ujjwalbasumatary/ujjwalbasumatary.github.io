@@ -194,7 +194,7 @@
         // ── Background manager ──
         // Change bgMode in localStorage to switch: 0 = Particles, 1 = Aurora
         var modes = [particles, aurora];
-        var currentMode = parseInt(localStorage.getItem("bgMode") || "0") % modes.length;
+        var currentMode = parseInt(localStorage.getItem("bgMode") || "1") % modes.length;
 
         function startMode(index) {
           if (animId) cancelAnimationFrame(animId);
