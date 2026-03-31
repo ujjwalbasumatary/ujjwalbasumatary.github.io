@@ -12,6 +12,7 @@
   --gradient-mid: #f0edf7;
   --gradient-end: #e8e3f2;
   --shadow: rgba(0, 0, 0, 0.05);
+  --accent-glow: rgba(124, 58, 237, 0.18);
 }
 
 [data-theme="dark"] {
@@ -28,6 +29,7 @@
   --gradient-mid: #0d0d14;
   --gradient-end: #0a0a0f;
   --shadow: rgba(0, 0, 0, 0.5);
+  --accent-glow: rgba(108, 156, 255, 0.2);
 }
 
 /* ─── Particle canvas ─── */
@@ -183,11 +185,7 @@ ul li {
 }
 
 .profile-photo:hover {
-  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.18);
-}
-
-[data-theme="dark"] .profile-photo:hover {
-  box-shadow: 0 6px 24px rgba(91, 154, 255, 0.2);
+  box-shadow: 0 6px 24px var(--accent-glow);
 }
 
 /* ─── Contact card ─── */
@@ -267,12 +265,8 @@ ul li {
 }
 
 .research-list li:hover {
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12);
+  box-shadow: 0 4px 14px var(--accent-glow);
   transform: translateX(3px);
-}
-
-[data-theme="dark"] .research-list li:hover {
-  box-shadow: 0 4px 14px rgba(91, 154, 255, 0.15);
 }
 
 /* ─── Responsive ─── */

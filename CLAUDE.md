@@ -21,10 +21,8 @@
 - `index.html` — home/about page with publications, preprints, worldline
 - `projects.html` — research projects (uses MathJax)
 - `notes.html` — placeholder
-- `publications.html` — full publication list (not in navbar)
-- `art.html` — art gallery (not in navbar)
 - `files/` — resume PDF
-- `images/` — profile photo and artwork
+- `images/` — profile photo
 
 ## Conventions
 - **Publications format:** `[arXiv ID] *Title* — Authors. Published in Journal.`

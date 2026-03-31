@@ -2,6 +2,7 @@
 
 <html>
   <head>
+    <title>{% if page.title %}{{ page.title }} — Ujjwal Basumatary{% else %}Ujjwal Basumatary{% endif %}</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
@@ -208,7 +209,9 @@
           animId = requestAnimationFrame(loop);
         }
 
-        startMode(currentMode);
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          startMode(currentMode);
+        }
 
         // Resize
         var lastWidth = window.innerWidth;
