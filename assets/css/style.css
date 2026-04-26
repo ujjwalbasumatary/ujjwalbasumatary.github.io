@@ -5,13 +5,11 @@
   --border: #dedbe6;
   --bg: #fbfaf8;
   --surface: #ffffff;
-  --pattern: rgba(79, 70, 229, 0.13);
+  --pattern: rgba(79, 70, 229, 0.2);
 }
 
 body {
   margin: 0;
-  padding-top: 57px;
-  padding-bottom: 58px;
   min-height: 100vh;
   color: var(--text);
   background-color: var(--bg);
@@ -146,6 +144,7 @@ ul li {
 }
 
 footer {
+  margin-top: auto;
   padding: 1.2rem 1rem;
   border-top: 1px solid var(--border);
   color: var(--muted);
@@ -156,12 +155,7 @@ footer {
 
 @media (max-width: 576px) {
   body {
-    padding-bottom: 0;
     font-size: 16px;
-  }
-
-  footer.fixed-bottom {
-    position: static;
   }
 
   .paper {
