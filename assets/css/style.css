@@ -1,11 +1,11 @@
 :root {
-  --accent: #4f46e5;
+  --accent: #7a4f2a;
   --text: #24222b;
   --muted: #676272;
   --border: #dedbe6;
   --bg: #fbfaf8;
   --surface: #ffffff;
-  --pattern: rgba(79, 70, 229, 0.2);
+  --pattern: rgba(122, 79, 42, 0.18);
 }
 
 body {
@@ -127,20 +127,6 @@ ul li {
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 600;
-}
-
-.research-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.research-list li {
-  padding: 0.9rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.research-list li:last-child {
-  border-bottom: 0;
 }
 
 footer {
