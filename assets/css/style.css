@@ -1,16 +1,20 @@
 :root {
-  --accent: #0f766e;
-  --accent-strong: #155e75;
-  --accent-warm: #e85d75;
-  --text: #202338;
-  --muted: #62687a;
-  --border: #d7e4ea;
-  --bg: #f7fbfb;
+  --accent: #2563eb;
+  --accent-strong: #1e3a8a;
+  --accent-soft: #6b8fcf;
+  --text: #1f2937;
+  --muted: #64748b;
+  --border: #d8e1ef;
+  --bg: #f7f9fd;
   --surface: #ffffff;
-  --surface-tint: #f0fbf9;
-  --pattern: rgba(15, 118, 110, 0.16);
-  --pattern-warm: rgba(232, 93, 117, 0.08);
-  --shadow: 0 24px 70px rgba(32, 35, 56, 0.08);
+  --surface-tint: #f1f6ff;
+  --pattern: rgba(37, 99, 235, 0.13);
+  --pattern-soft: rgba(107, 143, 207, 0.08);
+  --link-underline: rgba(107, 143, 207, 0.7);
+  --accent-border: rgba(37, 99, 235, 0.2);
+  --accent-rule: rgba(107, 143, 207, 0.65);
+  --accent-shadow: rgba(30, 58, 138, 0.14);
+  --shadow: 0 22px 62px rgba(30, 58, 138, 0.08);
 }
 
 body {
@@ -20,8 +24,8 @@ body {
   background-color: var(--bg);
   background-image:
     radial-gradient(var(--pattern) 1px, transparent 1px),
-    radial-gradient(var(--pattern-warm) 1.15px, transparent 1.15px),
-    linear-gradient(135deg, #ffffff 0%, #f7fbfb 52%, #fdf7f8 100%);
+    radial-gradient(var(--pattern-soft) 1.15px, transparent 1.15px),
+    linear-gradient(135deg, #ffffff 0%, #f7f9fd 58%, #f3f7ff 100%);
   background-position: 0 0, 13px 13px, 0 0;
   background-size: 26px 26px, 26px 26px, auto;
   font-family: "Computer Modern", serif;
@@ -59,7 +63,7 @@ body {
 .nav-item.active .nav-link {
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: var(--accent-warm);
+  text-decoration-color: var(--accent-soft);
   text-decoration-thickness: 0.12em;
   text-underline-offset: 0.35em;
 }
@@ -96,14 +100,14 @@ h3 {
 a {
   color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: rgba(232, 93, 117, 0.55);
+  text-decoration-color: var(--link-underline);
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
 }
 
 a:hover {
   color: var(--accent-strong);
-  text-decoration-color: var(--accent-warm);
+  text-decoration-color: var(--accent-soft);
 }
 
 ul {
@@ -120,13 +124,13 @@ ul li {
   margin-bottom: 1.1rem;
   border: 4px solid #ffffff;
   border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--border), 0 14px 34px rgba(21, 94, 117, 0.14);
+  box-shadow: 0 0 0 1px var(--border), 0 14px 34px var(--accent-shadow);
   object-fit: cover;
 }
 
 .contact-card {
   padding: 1rem 1.2rem;
-  border: 1px solid rgba(15, 118, 110, 0.22);
+  border: 1px solid var(--accent-border);
   border-radius: 6px;
   background: var(--surface-tint);
   text-align: center;
@@ -140,7 +144,7 @@ ul li {
 .timeline li {
   margin-bottom: 1rem;
   padding-left: 1rem;
-  border-left: 3px solid rgba(232, 93, 117, 0.45);
+  border-left: 3px solid var(--accent-rule);
 }
 
 .timeline-year {
