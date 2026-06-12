@@ -5,3 +5,9 @@ _site/
 .bundle/
 .codex
 vendor/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+files/main.pdf

@@ -1,7 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{mathpazo}
 \usepackage{newpxmath}
-\usepackage[empty]{fullpage}
+\usepackage[margin=0.58in]{geometry}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage{enumitem}
@@ -21,7 +21,11 @@
 \newcommand{\MYhref}[3][AcademicBlue]{\href{#2}{\color{#1}{#3}}}%
 \titleformat{\section}{
   \vspace{-4pt}\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+\titlespacing*{\section}{0pt}{9pt}{7pt}
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{3pt}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 %\pdfgentounicode=1
@@ -38,7 +42,7 @@
 
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{1pt}\item
+  \vspace{0pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{\small #2} \\
       \textit{\small#3} & \textit{\small #4} \\
@@ -59,6 +63,14 @@
     \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\awardItem}[4]{
+  \item
+    \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \small #2 \\
+      {\small\textit{#3}} & {\small #4} \\
+    \end{tabular*}\vspace{-3pt}
+}
+
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}}
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
@@ -73,7 +85,7 @@
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\titlesection{
 \begin{center}
-    {\Huge \bfseries Ujjwal Basumatary} \\ \vspace{1pt}
+    {\Huge \bfseries Ujjwal Basumatary} \\ \vspace{2pt}
     \small \href{mailto:ujjwalb.physics@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  {ujjwalb.physics@gmail.com}} ~ 
     \href{https://ujjwalbasumatary.github.io}{\raisebox{-0.2\height}\faGlobe\ ujjwalbasumatary.github.io} ~ 
     \href{https://github.com/ujjwalbasumatary}{\raisebox{-0.2\height}\faGithub\ ujjwalbasumatary}
@@ -82,6 +94,8 @@
 }
 
 \begin{document}
+\pagestyle{empty}
+\thispagestyle{empty}
 \titlesection
 
 %-----------EDUCATION-----------
@@ -89,21 +103,17 @@
     \resumeSubHeadingListStart
         \resumeSubheading{Indian Institute of Science, Bangalore}
         {Nov 2020 -- Apr 2025}
-        {Bachelor and Master of Science, Major in Physics}{CGPA: 9.3/10}
+        {Bachelor and Master of Science, Major in Physics}{(Physics: 9.6/10) CGPA: 9.3/10}
     \resumeSubHeadingListEnd
     
-\section{Publications}
+\section{Publications and Preprints}
     \resumeItemListStart
-        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2410.22702}{\texttt{2410.22702}}} 
-              \hfill \textit{Phys. Rev. D 111, L041306} \\
-              \textit{Beyond Hawking evaporation of black holes formed by dark matter in compact stars}, Ujjwal Basumatary, Nirmal Raj and Anupam Ray.}
-    \resumeItemListEnd
-\section{Preprints}
-    \resumeItemListStart
-        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2603.26090}{\texttt{2603.26090}}} \\
-              \textit{Cosmological Correlators Using Tensor Networks}, Ujjwal Basumatary, Aninda Sinha and Xinan Zhou.}
-        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2512.02706}{\texttt{2512.02706}}} \\
-              \textit{Lectures on Quantum Field Theory on a Quantum Computer}, Aninda Sinha and Ujjwal Basumatary.}
+        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2410.22702}{\texttt{2410.22702}}} \hfill \textit{Phys. Rev. D 111, L041306}\\
+        \textit{Beyond Hawking evaporation of black holes formed by dark matter in compact stars}, Ujjwal Basumatary, Nirmal Raj and Anupam Ray.}
+        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2603.26090}{\texttt{2603.26090}}}\\
+        \textit{Cosmological Correlators Using Tensor Networks}, Ujjwal Basumatary, Aninda Sinha and Xinan Zhou.}
+        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2512.02706}{\texttt{2512.02706}}}\\
+        \textit{Lectures on Quantum Field Theory on a Quantum Computer}, Aninda Sinha and Ujjwal Basumatary.}
     \resumeItemListEnd
 \section{Employment}
     \resumeSubHeadingListStart
@@ -120,32 +130,29 @@
     % \resumeSubHeadingListEnd
 \section{Teaching assistantships}
     \resumeSubHeadingListStart
-        \resumeSubheading{HE381: Quantum Field Theory and Quantum Computing}{IISc, Bangalore}{Instructor: Prof. Aninda Sinha}{CHEP}
+        \resumeSubheading{HE381: Quantum Field Theory on a Quantum Computer}{IISc, Bangalore}{Instructor: Prof. Aninda Sinha}{CHEP}
         \resumeItemListStart
-            \resumeItem{Conducted tutorials and designed/graded assignments, with demonstrations ranging from basic quantum algorithms to advanced Matrix Product States (MPS) algorithms.}
-            \resumeItem{The implementation details of the quantum and MPS algorithms are in \href{https://github.com/ujjwalbasumatary/qftonqc}{\uline{this}} GitHub repository.}
+            \resumeItem{Conducted tutorials and designed/graded assignments, with demonstrations from basic quantum algorithms to Matrix Product States (MPS). Implementations: \href{https://github.com/ujjwalbasumatary/qftonqc}{\uline{qftonqc}}.}
         \resumeItemListEnd
     \resumeSubHeadingListEnd
 \section{Fellowships and Awards}
     \resumeSubHeadingListStart
-        \resumeSubheading{S. N. Bhatt Memorial Fellowship}{May 2023 -- Jul 2023}{International Center for Theoretical Sciences (ICTS)}{Bangalore}
-        \resumeSubheading{Kishore Vaiyanik Protsahan Yojana (KVPY) Fellowship}{Nov 2020 -- Apr 2025}{Department of Science and Technology (DST)}{India}
-        \resumeSubheading{National Talent Search Exam (NTSE) Scholarship}{Apr 2018 -- Mar 2020}{National Council of Educational Research \& Training (NCERT)}{India}
+        \awardItem{S. N. Bhatt Memorial Fellowship}{May 2023 -- Jul 2023}{International Center for Theoretical Sciences (ICTS)}{Bangalore}
+        \awardItem{Kishore Vaiyanik Protsahan Yojana (KVPY) Fellowship}{Nov 2020 -- Apr 2025}{Department of Science and Technology (DST)}{India}
+        \awardItem{National Talent Search Exam (NTSE) Scholarship}{Apr 2018 -- Mar 2020}{National Council of Educational Research \& Training (NCERT)}{India}
         \resumeSubHeadingListEnd
 \section{Skills}
 \resumeItemListStart
     \item \textbf{Programming:} Julia, Python, Mathematica, C, C++ and Haskell.
-    \item \textbf{Markup}: Proficient in \LaTeX, working knowledge of HTML and CSS
+    \item \textbf{Markup:} \LaTeX, HTML and CSS.
 \resumeItemListEnd
 \section{Advanced Graduate Coursework}
 \small
-\begin{center}
-\begin{tabular}{@{} l r @{\hskip 1cm} l r @{}}
+\begin{tabular*}{\textwidth}{@{}p{0.34\textwidth}@{\extracolsep{\fill}}r p{0.34\textwidth}r@{}}
 Non-eq. Many-Body Dynamics & 10/10 & AdS${}_3/$CFT${}_2$ & 9/10 \\
 Standard Model & 10/10 & Adv. Mathematical Physics & 10/10 \\
 QFT - 2 & 9/10 & Cosmology for Theorists & 9/10 \\
 Statistical Field Theory & 9/10 & QFT - 1 & 10/10 \\
 General Relativity & 10/10 & Nuclear and Particle Physics & 10/10 \\
-\end{tabular}
-\end{center}
+\end{tabular*}
 \end{document}
