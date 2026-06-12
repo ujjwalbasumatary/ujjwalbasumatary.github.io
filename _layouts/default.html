@@ -64,7 +64,9 @@
     <main class="flex-grow-1">{{ content }}</main>
 
     <footer>
-      Ujjwal Basumatary &mdash; ujjwalb <em>dot</em> physics <em>at</em> gmail <em>dot</em> com
+      <div>&copy; {{ site.time | date: "%Y" }} Ujjwal Basumatary. All rights reserved.</div>
+      <div>Last updated: {{ site.time | date: "%B %-d, %Y" }}</div>
+      <div>ujjwalb <em>dot</em> physics <em>at</em> gmail <em>dot</em> com</div>
     </footer>
 
     <script
