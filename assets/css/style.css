@@ -11,6 +11,7 @@
   --accent-border: rgba(29, 78, 216, 0.18);
   --accent-rule: rgba(29, 78, 216, 0.42);
   --accent-shadow: rgba(23, 37, 84, 0.1);
+  --dot: rgba(29, 78, 216, 0.08);
 }
 
 body {
@@ -18,7 +19,8 @@ body {
   min-height: 100vh;
   color: var(--text);
   background-color: var(--bg);
-  background-image: linear-gradient(#ffffff 0%, #f8fafc 42%, #f4f7fb 100%);
+  background-image: radial-gradient(var(--dot) 0.8px, transparent 0.8px);
+  background-size: 18px 18px;
   font-family: "Computer Modern", serif;
   font-size: 18px;
   line-height: 1.68;
@@ -118,7 +120,6 @@ ul li {
 .profile-photo {
   width: 132px;
   height: 132px;
-  margin-bottom: 1.1rem;
   border: 1px solid var(--border);
   border-radius: 50%;
   box-shadow: 0 10px 28px var(--accent-shadow);
@@ -127,6 +128,32 @@ ul li {
 
 .profile-column {
   padding-top: 0.35rem;
+}
+
+.profile-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+}
+
+.profile-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  text-decoration: none;
 }
 
 .contact-card {
@@ -145,6 +172,11 @@ ul li {
   color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.55;
+}
+
+.section-action {
+  margin-top: 0.8rem;
+  font-size: 0.92rem;
 }
 
 .timeline {
@@ -175,7 +207,7 @@ footer {
   font-size: 0.85rem;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767.98px) {
   body {
     font-size: 16px;
   }
@@ -188,5 +220,9 @@ footer {
   .profile-photo {
     width: 110px;
     height: 110px;
+  }
+
+  .profile-head {
+    gap: 0.8rem;
   }
 }
