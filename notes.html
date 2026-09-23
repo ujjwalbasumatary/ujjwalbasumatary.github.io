@@ -25,30 +25,7 @@ permalink: /notes.html
     student reports and presentations. I was responsible for implementing the algorithms and currently
     maintain the repository.
   </p>
-  <p>
-    The Julia scripts use matrix product states to represent the quantum state.
-  </p>
-  <ul>
-    <li>
-      <a href="https://github.com/ujjwalbasumatary/qftonqc/blob/main/simulations/models/ift/scripts/collide_fixed_momentum.jl"><code>collide_fixed_momentum.jl</code></a>
-      implements the time evolution of two colliding wave packets in Ising
-      field theory. It records the changes in the energy on each bond and
-      the spin expectation value at each site relative to the vacuum.
-    </li>
-    <li>
-      <a href="https://github.com/ujjwalbasumatary/qftonqc/blob/main/simulations/models/phi4/scripts/collide_wavepackets.jl"><code>collide_wavepackets.jl</code></a>
-      implements the time evolution of two colliding wave packets in lattice
-      &phi;<sup>4</sup> theory. Each lattice site is represented in a truncated
-      oscillator basis.
-    </li>
-    <li>
-      <a href="https://github.com/ujjwalbasumatary/qftonqc/blob/main/simulations/models/schwinger/scripts/source_quench.jl"><code>source_quench.jl</code></a>
-      implements a source quench in the bosonized Schwinger model. It first
-      finds the ground state with a source on the central sites, then changes
-      the source strength and calculates the field expectation value at each
-      site as a function of time.
-    </li>
-  </ul>
+
   <p>
     You can find the Hamiltonians, setup instructions, and commands for
     running the calculations in the
