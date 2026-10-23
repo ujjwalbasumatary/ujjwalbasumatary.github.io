@@ -1,0 +1,80 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{resume-style}[2026/09/22 Shared CV and resume formatting]
+
+\RequirePackage{mathpazo}
+\RequirePackage{newpxmath}
+\RequirePackage[letterpaper,margin=0.58in]{geometry}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{fontawesome5}
+\RequirePackage{xcolor}
+\RequirePackage{needspace}
+\definecolor{AcademicBlue}{HTML}{1D4ED8}
+\RequirePackage[colorlinks=true,
+                allcolors=AcademicBlue,
+                pdfauthor={Ujjwal Basumatary}]{hyperref}
+
+% Preserve searchable, copyable text in PDFs built with pdfLaTeX.
+\ifdefined\pdfgentounicode
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
+
+\pagestyle{empty}
+\titleformat{\section}{
+  \vspace{-4pt}\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+\titlespacing*{\section}{0pt}{9pt}{7pt}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{3pt}
+% Align bullet markers with the text in the padded heading tables.
+\setlist[itemize]{labelindent=\tabcolsep, leftmargin=*, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt}
+
+\newcommand{\MYhref}[3][AcademicBlue]{\href{#2}{\color{#1}{#3}}}
+\newcommand{\resumeItem}[1]{\item{#1 \vspace{-2pt}}}
+
+\newcommand{\resumeSubheading}[4]{%
+  \Needspace{4\baselineskip}%
+  \item
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}\par\vspace{-1mm}%
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0pt,labelindent=0pt,label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% Longer research descriptions need more separation than short resume entries.
+% These settings are local to this environment.
+\newenvironment{resumeResearch}{%
+  \setlist[itemize,1]{itemsep=7pt}%
+  \setlist[itemize,2]{topsep=4pt,itemsep=3pt}%
+  \renewcommand{\resumeItem}[1]{\item ##1}%
+  \resumeSubHeadingListStart
+}{%
+  \resumeSubHeadingListEnd
+}
+
+\newcommand{\titlesection}{
+  \begin{center}
+    {\Huge \bfseries Ujjwal Basumatary} \\ \vspace{2pt}
+    \small
+    \href{mailto:ujjwalb.physics@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ ujjwalb.physics@gmail.com} ~
+    \href{https://ujjwalbasumatary.github.io}{\raisebox{-0.2\height}\faGlobe\ ujjwalbasumatary.github.io} ~
+    \href{https://github.com/ujjwalbasumatary}{\raisebox{-0.2\height}\faGithub\ ujjwalbasumatary}
+    \vspace{-8pt}
+  \end{center}
+}
+
+\newenvironment{resumeCoursework}{%
+  \par\small\noindent
+  \begin{tabular*}{\textwidth}{@{}p{0.34\textwidth}@{\extracolsep{\fill}}r p{0.34\textwidth}r@{}}%
+}{%
+  \end{tabular*}\par
+}
