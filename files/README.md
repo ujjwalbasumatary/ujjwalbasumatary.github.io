@@ -5,7 +5,8 @@
   the contact header, and the coursework table. Keep that file alongside the
   sources when copying them to another LaTeX project.
 - The full CV also loads `cv-style.sty`, which defines its burgundy and charcoal palette,
-  small-cap section headings, left-aligned header, secondary text, and page footers.
+  small-cap section headings, secondary text, and page footers. The CV uses the
+  original centered name and contact header from `resume-style.sty`.
   Keep both style files alongside `cv.tex`. It additionally uses `microtype` and
   `fancyhdr`; the one-page resume continues to use only the shared style.
 
