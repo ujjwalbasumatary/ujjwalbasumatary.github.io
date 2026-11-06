@@ -4,6 +4,10 @@
 - Both use `resume-style.sty` for typography, margins, links, headings, lists,
   the contact header, and the coursework table. Keep that file alongside the
   sources when copying them to another LaTeX project.
+- The full CV also loads `cv-style.sty`, which defines its coordinated blue palette,
+  small-cap section headings, left-aligned header, secondary text, and page footers.
+  Keep both style files alongside `cv.tex`. It additionally uses `microtype` and
+  `fancyhdr`; the one-page resume continues to use only the shared style.
 
 Build from this directory with pdfLaTeX, running each command twice to update
 the PDF bookmarks:
