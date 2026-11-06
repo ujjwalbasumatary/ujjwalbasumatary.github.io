@@ -11,6 +11,10 @@
 \RequirePackage{xcolor}
 \RequirePackage{needspace}
 \definecolor{AcademicBlue}{HTML}{1D4ED8}
+% Documents may override these colors after loading the shared style.
+\colorlet{ResumeHeading}{black}
+\colorlet{ResumeRule}{black}
+\colorlet{ResumeSecondary}{black}
 \RequirePackage[colorlinks=true,
                 allcolors=AcademicBlue,
                 pdfauthor={Ujjwal Basumatary}]{hyperref}
@@ -23,8 +27,8 @@
 
 \pagestyle{empty}
 \titleformat{\section}{
-  \vspace{-4pt}\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+  \vspace{-4pt}\raggedright\large\bfseries\color{ResumeHeading}
+}{}{0em}{}[\color{ResumeRule}\titlerule \vspace{-4pt}]
 \titlespacing*{\section}{0pt}{9pt}{7pt}
 \setlength{\parindent}{0pt}
 \setlength{\tabcolsep}{3pt}
@@ -38,8 +42,8 @@
   \Needspace{4\baselineskip}%
   \item
     \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small #3} & \textit{\small #4} \\
+      \textbf{#1} & \textbf{\small\color{ResumeSecondary} #2} \\
+      \textit{\small #3} & \textit{\small\color{ResumeSecondary} #4} \\
     \end{tabular*}\par\vspace{-1mm}%
 }
 
