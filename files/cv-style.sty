@@ -4,13 +4,14 @@
 \RequirePackage{microtype}
 \RequirePackage{fancyhdr}
 
-% One blue family ties the header, headings, rules, and links together.
-\definecolor{CVAccent}{HTML}{285E78}
-\definecolor{CVInk}{HTML}{203B49}
-\definecolor{ResumeSecondary}{HTML}{56616A}
+% Restrained burgundy accents, charcoal text, and warm neutral rules.
+\definecolor{CVAccent}{HTML}{6B2938}
+\definecolor{CVInk}{HTML}{252222}
+\definecolor{ResumeSecondary}{HTML}{625B58}
 \colorlet{AcademicBlue}{CVAccent}
 \colorlet{ResumeHeading}{CVAccent}
-\colorlet{ResumeRule}{CVAccent!28}
+\definecolor{ResumeRule}{HTML}{D3CBC5}
+\AtBeginDocument{\color{CVInk}}
 
 \titleformat{\section}{%
   \raggedright\fontsize{13}{16}\selectfont\scshape\color{ResumeHeading}%
@@ -20,12 +21,14 @@
 \renewcommand{\titlesection}{%
   \begingroup
     \raggedright
-    {\fontsize{29}{33}\selectfont\bfseries\color{CVInk} Ujjwal Basumatary\par}
+    {\fontsize{30}{34}\selectfont\color{CVInk} Ujjwal Basumatary\par}
     \vspace{5pt}
-    {\fontsize{10}{12}\selectfont
-      \href{mailto:ujjwalb.physics@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ ujjwalb.physics@gmail.com}\quad
-      \href{https://ujjwalbasumatary.github.io}{\raisebox{-0.2\height}\faGlobe\ ujjwalbasumatary.github.io}\quad
-      \href{https://github.com/ujjwalbasumatary}{\raisebox{-0.2\height}\faGithub\ ujjwalbasumatary}\par}
+    {\fontsize{10}{12}\selectfont\hypersetup{urlcolor=ResumeSecondary}
+      \href{mailto:ujjwalb.physics@gmail.com}{ujjwalb.physics@gmail.com}\enspace
+      \textcolor{ResumeRule}{\textbar}\enspace
+      \href{https://ujjwalbasumatary.github.io}{ujjwalbasumatary.github.io}\enspace
+      \textcolor{ResumeRule}{\textbar}\enspace
+      \href{https://github.com/ujjwalbasumatary}{ujjwalbasumatary}\par}
   \endgroup
   \vspace{3pt}
 }
