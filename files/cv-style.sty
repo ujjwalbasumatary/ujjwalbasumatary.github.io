@@ -4,18 +4,18 @@
 \RequirePackage{microtype}
 \RequirePackage{fancyhdr}
 
-% Restrained burgundy accents, charcoal text, and warm neutral rules.
-\definecolor{CVAccent}{HTML}{6B2938}
-\definecolor{CVInk}{HTML}{252222}
-\definecolor{ResumeSecondary}{HTML}{625B58}
-\colorlet{AcademicBlue}{CVAccent}
+% Strong navy hierarchy with near-black text and clear blue-gray dividers.
+\definecolor{CVAccent}{HTML}{193D63}
+\definecolor{CVInk}{HTML}{17191D}
+\definecolor{ResumeSecondary}{HTML}{343C46}
+\definecolor{AcademicBlue}{HTML}{245D96}
 \colorlet{ResumeHeading}{CVAccent}
-\definecolor{ResumeRule}{HTML}{D3CBC5}
+\definecolor{ResumeRule}{HTML}{879BB0}
 \AtBeginDocument{\color{CVInk}}
 
 \titleformat{\section}{%
-  \raggedright\fontsize{13}{16}\selectfont\scshape\color{ResumeHeading}%
-}{}{0em}{}[{\vspace{-2pt}\color{ResumeRule}\titlerule[0.4pt]}]
+  \raggedright\fontsize{13}{16}\selectfont\bfseries\color{ResumeHeading}%
+}{}{0em}{}[{\vspace{-2pt}\color{ResumeRule}\titlerule[0.6pt]}]
 \titlespacing*{\section}{0pt}{11pt}{7pt}
 
 % Use the original centered name and icon-based contact header from resume-style.

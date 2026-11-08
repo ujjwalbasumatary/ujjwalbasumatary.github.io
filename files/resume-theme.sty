@@ -3,17 +3,17 @@
 \RequirePackage{resume-style}
 \RequirePackage{microtype}
 
-% Match the coordinated blue CV palette.
-\definecolor{ResumeHeading}{HTML}{23466B}
-\definecolor{AcademicBlue}{HTML}{2D659C}
-\definecolor{ResumeSecondary}{HTML}{414B57}
-\definecolor{ResumeRule}{HTML}{C6D3E0}
-\definecolor{ResumeInk}{HTML}{252B33}
+% Strong navy hierarchy with near-black text and clear blue-gray dividers.
+\definecolor{ResumeHeading}{HTML}{193D63}
+\definecolor{AcademicBlue}{HTML}{245D96}
+\definecolor{ResumeSecondary}{HTML}{343C46}
+\definecolor{ResumeRule}{HTML}{879BB0}
+\definecolor{ResumeInk}{HTML}{17191D}
 \AtBeginDocument{\color{ResumeInk}}
 
 \titleformat{\section}{%
-  \raggedright\fontsize{13}{16}\selectfont\scshape\color{ResumeHeading}%
-}{}{0em}{}[{\vspace{-2pt}\color{ResumeRule}\titlerule[0.4pt]}]
+  \raggedright\fontsize{13}{16}\selectfont\bfseries\color{ResumeHeading}%
+}{}{0em}{}[{\vspace{-2pt}\color{ResumeRule}\titlerule[0.6pt]}]
 \titlespacing*{\section}{0pt}{9pt}{5pt}
 
 % Dates remain upright; affiliations and locations are italic.
