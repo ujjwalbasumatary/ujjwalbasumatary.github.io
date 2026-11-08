@@ -1,0 +1,27 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{resume-theme}[2026/11/08 One-page resume presentation]
+\RequirePackage{resume-style}
+\RequirePackage{microtype}
+
+% Match the coordinated blue CV palette.
+\definecolor{ResumeHeading}{HTML}{23466B}
+\definecolor{AcademicBlue}{HTML}{2D659C}
+\definecolor{ResumeSecondary}{HTML}{414B57}
+\definecolor{ResumeRule}{HTML}{C6D3E0}
+\definecolor{ResumeInk}{HTML}{252B33}
+\AtBeginDocument{\color{ResumeInk}}
+
+\titleformat{\section}{%
+  \raggedright\fontsize{13}{16}\selectfont\scshape\color{ResumeHeading}%
+}{}{0em}{}[{\vspace{-2pt}\color{ResumeRule}\titlerule[0.4pt]}]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+
+% Dates remain upright; affiliations and locations are italic.
+\renewcommand{\resumeSubheading}[4]{%
+  \Needspace{4\baselineskip}%
+  \item
+    \begin{tabular*}{\linewidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & {\small\color{ResumeSecondary} #2} \\
+      \textit{\small #3} & \textit{\small\color{ResumeSecondary} #4} \\
+    \end{tabular*}\par\vspace{-1mm}%
+}

@@ -1,89 +1,7 @@
-\documentclass[12pt]{article}
-\usepackage{mathpazo}
-\usepackage{newpxmath}
-\usepackage[margin=0.58in]{geometry}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage{enumitem}
-\usepackage{ulem}
-\usepackage{fontawesome5}
-\usepackage{multicol}
-\usepackage{xcolor}
-\definecolor{OxfordBlue}{HTML}{172554}
-\definecolor{AcademicBlue}{HTML}{1D4ED8}
-\definecolor{SoftBlue}{HTML}{8AA7D8}
-\usepackage[colorlinks = true,
-            linkcolor = AcademicBlue,
-            urlcolor  = AcademicBlue,
-            citecolor = AcademicBlue,
-            anchorcolor = AcademicBlue]{hyperref}
-
-\newcommand{\MYhref}[3][AcademicBlue]{\href{#2}{\color{#1}{#3}}}%
-\titleformat{\section}{
-  \vspace{-4pt}\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
-\titlespacing*{\section}{0pt}{9pt}{7pt}
-\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt}
-\setlength{\parindent}{0pt}
-\setlength{\tabcolsep}{3pt}
-
-% Ensure that generate pdf is machine readable/ATS parsable
-%\pdfgentounicode=1
-
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item{#1 \vspace{-2pt}}
-}
-
-\newcommand{\describe}[2]{
-    \csname #1@#2\endcsname
-}
-
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{0pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-1mm}
-}
-
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{1.00\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}}
-
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\titlesection{
-\begin{center}
-    {\Huge \bfseries Ujjwal Basumatary} \\ \vspace{2pt}
-    \small \href{mailto:ujjwalb.physics@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  {ujjwalb.physics@gmail.com}} ~ 
-    \href{https://ujjwalbasumatary.github.io}{\raisebox{-0.2\height}\faGlobe\ ujjwalbasumatary.github.io} ~ 
-    \href{https://github.com/ujjwalbasumatary}{\raisebox{-0.2\height}\faGithub\ ujjwalbasumatary}
-    \vspace{-8pt}
-\end{center}
-}
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{resume-theme}
+\hypersetup{pdftitle={Ujjwal Basumatary -- Resume}}
 
 \begin{document}
 \pagestyle{empty}
@@ -100,31 +18,30 @@
     
 \section{Publications and Preprints}
     \resumeItemListStart
-        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2410.22702}{\texttt{2410.22702}}} \hfill \textit{Phys. Rev. D 111, L041306}\\
-        \textit{Beyond Hawking evaporation of black holes formed by dark matter in compact stars}, Ujjwal Basumatary, Nirmal Raj and Anupam Ray.}
-        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2603.26090}{\texttt{2603.26090}}}\\
-        \textit{Cosmological Correlators Using Tensor Networks}, Ujjwal Basumatary, Aninda Sinha and Xinan Zhou.}
-        \resumeItem{\textbf{\MYhref{https://arxiv.org/abs/2512.02706}{\texttt{2512.02706}}}\\
-        \textit{Lectures on Quantum Field Theory on a Quantum Computer}, Aninda Sinha and Ujjwal Basumatary.}
+        \resumeItem{\textbf{\href{https://arxiv.org/abs/2410.22702}{\texttt{arXiv:2410.22702}}}
+              \hfill \textit{\small\color{ResumeSecondary} Phys. Rev. D 111, L041306} \\
+              \textit{Beyond Hawking evaporation of black holes formed by dark matter in compact stars}, \textbf{Ujjwal Basumatary}, Nirmal Raj and Anupam Ray.}
+        \resumeItem{\textbf{\href{https://arxiv.org/abs/2603.26090}{\texttt{arXiv:2603.26090}}}
+              \hfill \textit{\small\color{ResumeSecondary} Under review at JHEP} \\
+              \textit{Cosmological Correlators Using Tensor Networks}, \textbf{Ujjwal Basumatary}, Aninda Sinha and Xinan Zhou.}
+        \resumeItem{\textbf{\href{https://arxiv.org/abs/2512.02706}{\texttt{arXiv:2512.02706}}}
+              \hfill \textit{\small\color{ResumeSecondary} Under review at TRiPS, Hindustan Book Agency/Springer} \\
+              \textit{Lectures on Quantum Field Theory on a Quantum Computer}, Aninda Sinha and \textbf{Ujjwal Basumatary}.}
+        \resumeItem{\textit{\color{ResumeSecondary} In preparation} \\
+              \textit{Thermalization and entanglement in the Yukawa--SYK model}, \textbf{Ujjwal Basumatary} and Sumilan Banerjee.}
     \resumeItemListEnd
 \section{Employment}
     \resumeSubHeadingListStart
-        \resumeSubheading{Raman Research Institute, Bangalore}{Aug 2025 -- Jun 2026}{Project intern}{National Quantum Mission}
+        \resumeSubheading{Lodha Theoretical Physics Institute, Mumbai}{Jul 2026 -- Present}{Research Assistant}{}
+        \resumeSubheading{Indian Institute of Science, Bangalore}{Aug 2025 -- Jun 2026}{Project Intern}{Center for High Energy Physics}
+        \resumeSubheading{Raman Research Institute, Bangalore}{Aug 2025 -- Jun 2026}{Project Intern, National Quantum Mission}{Light and Matter Physics}
         \resumeSubheading{Indian Institute of Science, Bangalore}{Jun 2025 -- Jul 2025}{Project Associate - 1}{}
     \resumeSubHeadingListEnd
-    
-% \section{Current Research}
-    % \resumeSubHeadingListStart
-        % \resumeSubheading{QC for QFT}{Sep 2025 -- }{Guide: Prof. Aninda Sinha}{IISc, Bangalore}
-        % \resumeItemListStart
-            % \resumeItem{I am currently studying MPS and Quantum Computing techniques for classical and quantum simulations of Quantum Field Theories.}
-        % \resumeItemListEnd
-    % \resumeSubHeadingListEnd
-\section{Teaching assistantships}
+\section{Teaching Assistantships}
     \resumeSubHeadingListStart
-        \resumeSubheading{HE381: Quantum Field Theory on a Quantum Computer}{IISc, Bangalore}{Instructor: Prof. Aninda Sinha}{CHEP}
+        \resumeSubheading{HE381: Quantum Field Theory on a Quantum Computer}{\textit{IISc, Bangalore}}{Instructor: Prof. Aninda Sinha}{CHEP}
         \resumeItemListStart
-            \resumeItem{Conducted tutorials and designed/graded assignments, with demonstrations from basic quantum algorithms to Matrix Product States (MPS). Implementations: \href{https://github.com/ujjwalbasumatary/qftonqc}{\uline{qftonqc}}.}
+            \resumeItem{Conducted tutorials and designed/graded assignments, with demonstrations from basic quantum algorithms to Matrix Product States (MPS). Implementations: \href{https://github.com/ujjwalbasumatary/qftonqc}{\texttt{qftonqc}}.}
         \resumeItemListEnd
     \resumeSubHeadingListEnd
 \section{Fellowships and Awards}
