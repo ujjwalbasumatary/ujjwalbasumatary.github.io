@@ -4,13 +4,13 @@
 - Both use `resume-style.sty` for typography, margins, links, headings, lists,
   the contact header, and the coursework table. Keep that file alongside the
   sources when copying them to another LaTeX project.
-- The one-page resume loads `resume-theme.sty` for bold navy headings, blue links,
-  near-black text, dark slate-gray dates and affiliations, stronger blue-gray
+- The one-page resume loads `resume-theme.sty` for bold burgundy headings and links,
+  near-black text, dark gray dates and affiliations, stronger warm gray
   rules, and compact section spacing. Keep both
   `resume-theme.sty` and `resume-style.sty` alongside `main.tex`; the theme uses
   `microtype`. The resume includes the current employment and publication details.
 - The full CV also loads `cv-style.sty`, which matches the resume's higher-contrast
-  blue palette and bold section headings, with page footers and roomier section spacing. The CV uses the
+  burgundy palette and bold section headings, with page footers and roomier section spacing. The CV uses the
   original centered name and contact header from `resume-style.sty`.
   Keep both style files alongside `cv.tex`. It additionally uses `microtype` and
   `fancyhdr`.
