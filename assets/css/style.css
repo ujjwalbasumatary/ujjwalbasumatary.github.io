@@ -1,17 +1,17 @@
 :root {
-  --accent: #1d4ed8;
-  --accent-strong: #172554;
-  --accent-soft: #8aa7d8;
-  --text: #16181f;
-  --muted: #5f6878;
-  --border: #d9dee8;
-  --section-border: rgba(217, 222, 232, 0.9);
-  --bg: #f8fafc;
-  --link-underline: rgba(29, 78, 216, 0.32);
-  --accent-border: rgba(29, 78, 216, 0.18);
-  --accent-rule: rgba(29, 78, 216, 0.42);
-  --accent-shadow: rgba(23, 37, 84, 0.1);
-  --dot: rgba(29, 78, 216, 0.08);
+  --accent: #6b2938;
+  --accent-strong: #50202a;
+  --accent-soft: #b68791;
+  --text: #1d1b1b;
+  --muted: #595555;
+  --border: #dedada;
+  --section-border: rgba(161, 152, 152, 0.55);
+  --bg: #ffffff;
+  --link-underline: rgba(107, 41, 56, 0.32);
+  --accent-border: rgba(107, 41, 56, 0.18);
+  --accent-rule: rgba(107, 41, 56, 0.42);
+  --accent-shadow: rgba(29, 27, 27, 0.1);
+  --dot: rgba(64, 61, 61, 0.07);
 }
 
 body {
