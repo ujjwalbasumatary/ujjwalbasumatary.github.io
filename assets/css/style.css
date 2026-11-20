@@ -11,7 +11,6 @@
   --accent-border: rgba(107, 41, 56, 0.18);
   --accent-rule: rgba(107, 41, 56, 0.42);
   --accent-shadow: rgba(29, 27, 27, 0.1);
-  --dot: rgba(64, 61, 61, 0.07);
 }
 
 body {
@@ -19,16 +18,37 @@ body {
   min-height: 100vh;
   color: var(--text);
   background-color: var(--bg);
-  background-image: radial-gradient(var(--dot) 0.8px, transparent 0.8px);
-  background-size: 18px 18px;
+  isolation: isolate;
   font-family: "Computer Modern", serif;
+  font-variant-numeric: oldstyle-nums;
   font-size: 18px;
   line-height: 1.68;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/assets/penrose.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: max(2200px, 100vw, 100vh) auto;
+  opacity: 0.62;
+  /* Keep the tiling at the edges; fade it out behind the reading column. */
+  -webkit-mask-image: radial-gradient(ellipse 60% 75% at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.75) 80%, #000 100%);
+  mask-image: radial-gradient(ellipse 60% 75% at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.75) 80%, #000 100%);
 }
 
 .navbar {
   background: #ffffff !important;
   border-bottom: 1px solid var(--border);
+}
+
+.navbar > .container {
+  max-width: 920px;
+  padding-inline: 2.75rem;
 }
 
 .navbar-brand {
@@ -61,7 +81,7 @@ body {
 }
 
 .paper {
-  max-width: 760px;
+  max-width: 920px;
   margin: 3.25rem auto;
   padding: 0 2.75rem;
 }
@@ -117,6 +137,16 @@ ul li {
   text-indent: -1.15rem;
 }
 
+/* Old-style 1s read as "ɪ" in bold; keep lining figures for volume numbers. */
+b {
+  font-variant-numeric: lining-nums;
+}
+
+.paper li strong {
+  color: var(--accent-strong);
+  font-weight: inherit;
+}
+
 .profile-photo {
   width: 132px;
   height: 132px;
@@ -143,7 +173,7 @@ ul li {
   display: flex;
   justify-content: center;
   gap: 0.9rem;
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   line-height: 1;
 }
 
@@ -151,15 +181,19 @@ ul li {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.55rem;
-  height: 1.55rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--muted);
   text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.profile-links a:hover {
+  color: var(--accent);
 }
 
 .contact-card {
-  padding: 0.95rem 0.4rem;
-  border-top: 1px solid var(--accent-border);
-  border-bottom: 1px solid var(--accent-border);
+  padding: 0.4rem 0.4rem 0;
   text-align: center;
 }
 
@@ -179,15 +213,49 @@ ul li {
   font-size: 0.92rem;
 }
 
+/* Single-column pages: keep prose at a readable measure, left-aligned with the header. */
+.paper > p,
+.paper > section > p {
+  max-width: 42rem;
+}
+
 .timeline {
+  position: relative;
   list-style: none;
   padding-left: 0;
 }
 
+/* One continuous rule, running from the first dot to the last. */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 4px;
+  width: 1px;
+  background: var(--accent-rule);
+}
+
 .timeline li {
+  position: relative;
   margin-bottom: 0.95rem;
-  padding-left: 0.85rem;
-  border-left: 2px solid var(--accent-rule);
+  padding-left: 1.4rem;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.timeline li:first-child::before {
+  background: var(--accent);
 }
 
 .timeline-year {
@@ -208,6 +276,10 @@ footer {
 }
 
 @media (max-width: 767.98px) {
+  body::before {
+    opacity: 0.42;
+  }
+
   body {
     font-size: 16px;
   }
@@ -215,6 +287,10 @@ footer {
   .paper {
     margin: 1.2rem auto;
     padding: 0 1.35rem;
+  }
+
+  .navbar > .container {
+    padding-inline: 1.35rem;
   }
 
   .profile-photo {

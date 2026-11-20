@@ -68,8 +68,10 @@
     <main class="flex-grow-1">{{ content }}</main>
 
     <footer>
-      <div>&copy; {{ site.time | date: "%Y" }} Ujjwal Basumatary. All rights reserved.</div>
+      <div>&copy; {{ site.time | date: "%Y" }} Ujjwal Basumatary</div>
+      {% unless page.contact_card %}
       <div>ujjwalb <em>dot</em> physics <em>at</em> gmail <em>dot</em> com</div>
+      {% endunless %}
     </footer>
 
     <script
