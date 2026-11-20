@@ -2,8 +2,8 @@
 
 ## Tech Stack
 - **Static site generator:** Jekyll (GitHub Pages)
-- **CSS framework:** Bootstrap 5.3.3 (CDN)
-- **Font:** Computer Modern (web font via dreampulse CDN)
+- **CSS framework:** none (small hand-written layout CSS; mobile menu in `assets/js/navigation.js`)
+- **Font:** system Palatino (`"Palatino Linotype", Palatino, …, serif`, matching the CV's mathpazo), no web fonts
 - **No build tools** — plain HTML/CSS, no SCSS/JS bundler
 
 ## Theming
@@ -26,4 +26,4 @@
 ## Conventions
 - **Publications format:** `[arXiv ID] *Title* — Authors. Published in Journal.`
 - **Preprints format:** `[arXiv ID] *Title* — Authors.`
-- No jQuery — Bootstrap 5 bundle handles everything
+- No jQuery, no Bootstrap, no external CDNs (only GoatCounter analytics)

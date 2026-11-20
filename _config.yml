@@ -1,0 +1,22 @@
+exclude:
+  - AGENTS.md
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - tmp
+  - "*.aux"
+  - "*.log"
+  - "*.out"
+  - "*.fls"
+  - "*.fdb_latexmk"
+  - "**/*.aux"
+  - "**/*.log"
+  - "**/*.out"
+  - "**/*.fls"
+  - "**/*.fdb_latexmk"
+  - "files/*.tex"
+  - "files/*.sty"
+  - files/README.md
+  - files/main.pdf
+  - files/cv_ujjwal.pdf

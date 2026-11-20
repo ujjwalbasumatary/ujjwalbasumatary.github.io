@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --accent: #6b2938;
   --accent-strong: #50202a;
@@ -8,21 +14,88 @@
   --section-border: rgba(161, 152, 152, 0.55);
   --bg: #ffffff;
   --link-underline: rgba(107, 41, 56, 0.32);
-  --accent-border: rgba(107, 41, 56, 0.18);
   --accent-rule: rgba(107, 41, 56, 0.42);
   --accent-shadow: rgba(29, 27, 27, 0.1);
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   min-height: 100vh;
   color: var(--text);
   background-color: var(--bg);
   isolation: isolate;
-  font-family: "Computer Modern", serif;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", "TeX Gyre Pagella", "URW Palladio L", P052, serif;
   font-variant-numeric: oldstyle-nums;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.68;
+}
+
+main {
+  flex: 1;
+}
+
+p,
+ul,
+dl,
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h2 {
+  line-height: 1.2;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: -0.75rem;
+}
+
+.row > * {
+  width: 100%;
+  min-width: 0;
+  padding-inline: 0.75rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 0.5rem;
+  z-index: 10;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 body::before {
@@ -39,26 +112,63 @@ body::before {
 }
 
 .navbar {
-  background: #ffffff !important;
+  padding-block: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
 
 .navbar > .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-inline: auto;
   max-width: 920px;
   padding-inline: 2.75rem;
 }
 
 .navbar-brand {
+  padding-block: 0.3125rem;
+  margin-right: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
   color: var(--accent-strong) !important;
   font-size: 1.05rem;
   font-weight: 600;
 }
 
-.navbar-toggler:focus {
-  box-shadow: none;
+.navbar-toggler {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.navbar-toggler-icon {
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 -7px currentColor, 0 7px currentColor;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-link {
+  display: block;
+  text-decoration: none;
   color: var(--muted) !important;
   font-size: 0.95rem;
   padding: 0.45rem 0.8rem !important;
@@ -141,7 +251,7 @@ b {
 
 .paper li strong {
   color: var(--accent-strong);
-  font-weight: inherit;
+  font-weight: 700;
 }
 
 .profile-photo {
@@ -187,6 +297,23 @@ b {
 
 .profile-links a:hover {
   color: var(--accent);
+}
+
+.profile-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  mask: var(--icon) center / contain no-repeat;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+}
+
+.icon-arxiv {
+  --icon: url("/assets/icons/arxiv.svg");
+}
+
+.icon-scholar {
+  --icon: url("/assets/icons/google-scholar.svg");
 }
 
 .contact-card {
@@ -267,18 +394,43 @@ footer {
   padding: 1rem;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  background: rgba(255, 255, 255, 0.78);
   text-align: center;
   font-size: 0.85rem;
 }
 
+@media (min-width: 768px) {
+  .col-md-8 {
+    width: 66.666667%;
+  }
+
+  .col-md-4 {
+    width: 33.333333%;
+  }
+}
+
 @media (max-width: 767.98px) {
+  .navbar-toggler:not([hidden]) {
+    display: flex;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+  }
+
+  .navbar-collapse[data-collapsible]:not(.is-open) {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
   body::before {
     opacity: 0.35;
   }
 
   body {
-    font-size: 16px;
+    font-size: 15.5px;
   }
 
   .paper {
@@ -297,5 +449,13 @@ footer {
 
   .profile-head {
     gap: 0.8rem;
+  }
+}
+
+@media print {
+  body::before,
+  .navbar,
+  .skip-link {
+    display: none;
   }
 }
