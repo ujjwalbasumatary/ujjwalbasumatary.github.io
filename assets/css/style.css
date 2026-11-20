@@ -35,10 +35,7 @@ body::before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: max(2200px, 100vw, 100vh) auto;
-  opacity: 0.62;
-  /* Keep the tiling at the edges; fade it out behind the reading column. */
-  -webkit-mask-image: radial-gradient(ellipse 60% 75% at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.75) 80%, #000 100%);
-  mask-image: radial-gradient(ellipse 60% 75% at 50% 50%, transparent 35%, rgba(0, 0, 0, 0.75) 80%, #000 100%);
+  opacity: 0.4;
 }
 
 .navbar {
@@ -277,7 +274,7 @@ footer {
 
 @media (max-width: 767.98px) {
   body::before {
-    opacity: 0.42;
+    opacity: 0.35;
   }
 
   body {
